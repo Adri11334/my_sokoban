@@ -16,7 +16,7 @@ int sokoban_run(sokoban_t *sokoban, int ch)
         case KEY_RIGHT: move_right(sokoban); break;
     }
     display_HUD(sokoban);
-    is_victory(sokoban);
+    is_loose(sokoban);
     return 0;
 }
 
@@ -46,19 +46,15 @@ int sokoban_menu(sokoban_t *sokoban, int ch)
     refresh();
     return 0;
 }
-#include <unistd.h>
+
 int sokoban_end(sokoban_t *sokoban, int ch)
 {
     clear();
-    if (sokoban->status == WIN) {
-        move((LINES / 2), (COLS / 2) - 5);
+    display_HUD(sokoban);
+    if (sokoban->status == WIN)
         printw("You won !");
-        write(2, "You won !", 11);
-    } else {
-        move((LINES / 2), (COLS / 2) - 6);
+    else
         printw("Game over..");
-        write(2, "Game over..", 13);
-    }
     refresh();
     return 0;
 }

@@ -24,8 +24,8 @@ OBJ			=	$(SRC:.c=.o)
 
 NAME		=	my_sokoban
 
-# -Werror
-CFLAGS		+=	-W -Wall -Wextra -Wshadow -Wimplicit -pedantic
+# -Wall
+CFLAGS		+=	-W -Wextra -Werror -Wshadow -Wimplicit -pedantic
 
 LDFLAGS		+=	-L./lib -lutils
 LDFLAGS		+=	-L./lib -llinkedlist

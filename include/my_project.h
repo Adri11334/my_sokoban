@@ -57,6 +57,7 @@
     int sokoban_invalid_screen(sokoban_t *sokoban, int ch);
     int sokoban_pause(sokoban_t *sokoban, int ch);
     int sokoban_menu(sokoban_t *sokoban, int ch);
+    int sokoban_end(sokoban_t *sokoban, int ch);
 
     int can_move(dPos_t next_pos, dPos_t nnext_pos, char **map, char **v_map);
     void move_up(sokoban_t *sokoban);
@@ -65,6 +66,8 @@
     void move_right(sokoban_t *sokoban);
 
     void display_HUD(sokoban_t *sokoban);
-    void is_victory(sokoban_t *sokoban);
+    void check_borders(dPos_t pos, char **map, char **v_map, int *l_x);
+    int is_victory(sokoban_t *sokoban);
+    void is_loose(sokoban_t *sokoban);
 
 #endif /* !MY_PROJECT_H_ */
